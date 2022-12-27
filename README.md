@@ -1,7 +1,6 @@
-# Assignment-3
+# Assignment 3
 
-(THE FILE CODE IS STILL YET TO BE COMPLETED)
+Two files are added in this repository. The one with the name of "Assignment3" is the recently added file with the changes.
 
-The cpp file is added in this repository, which can be run by pasting the content of the file on any online compiler or any other editor.
 
 Created by: Hamza Rehman
