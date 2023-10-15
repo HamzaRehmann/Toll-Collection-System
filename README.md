@@ -1,4 +1,4 @@
-###Toll Collection System
+### Toll Collection System
 
 Develop a software in C/C++ that can charge toll for every passing vehicle and generate a summary for the revenue collected, and vehicle crossed etc. 
 
