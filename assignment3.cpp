@@ -1,294 +1,160 @@
 /*
 Hamza Rehman
 */
-#include<iostream>
-using namespace std;
 
-//suggested tolls
-const int Cycle = 1;
-const int Electric_scooty = 1;
-const int motor_or_electric_cycle = 1;
-const int Cars = 2;
-const int Suv = 2;
-const int Crossovers = 2;
-const int vans = 3;
-const int pickups = 3;
-const int minibus = 3;
-const int minivans = 3;
-const int campervan = 3;
-const int tractors = 4;
-const int agricultural_machines = 4;
-const int busses = 5;
-const int coaches = 5;
-const int Vans = 5;
-const int trucks = 6;
-const int lorries = 6;
-const int Trucks = 10;
-const int Agricultural_machines = 10;
+#include <iostream>
+#include <map>
+#include <string>
 
-//class of toll station
-class Toll_Station {
-    private:
-           int Two_wheelers_count, Four_wheelers_count, Six_wheelers_count, Ten_or_more_wheelers_count, Cycle_count,
-           Electric_scooty_count, motor_or_electric_cycle_count, Cars_count, Suv_count, Crossovers_count, vans_count,
-           pickups_count,minibus_count,minivan_count, campervan_count, tractors_count, agricultural_machines_count,
-           busses_count,coaches_count,Vans_count,trucks_count,lorries_count,Trucks_count,Agricultural_machines_count;
-
-           int toll_twowheelers[Cycle,Electric_scooty,motor_or_electric_cycle];
-           int toll_fourwheelers[Cars,Suv,Crossovers,vans,pickups,minibus,minivans,campervan,tractors,agricultural_machines];
-           int toll_sixwheelers[busses,coaches,Vans,trucks,lorries];
-           int toll_ten_or_more_wheelers[Trucks,Agricultural_machines];
-           int total_vehicle = 0;
-
-    public:
-           void Count();
-           void Two_wheelers();
-           void Four_wheelers();
-           void Six_wheelers();
-           void ten_Or_more_wheelers();
-           void Total_toll();
-           void Total_vehical();
-
+//Base class for vehicles
+class Vehicle {
+public:
+    virtual int getToll() const = 0;
+    virtual std::string getType() const = 0;
+    virtual ~Vehicle() {}
 };
 
-void Toll_Station::Count(){
-    Two_wheelers_count = 0, Four_wheelers_count = 0, Six_wheelers_count = 0, Ten_or_more_wheelers_count = 0;
-}
+//Derived classes for different types of vehicles
+class TwoWheeler : public Vehicle {
+public:
+    int getToll() const override {
+        return 1;
+    }
+    std::string getType() const override {
+        return "Two Wheeler";
+    }
+};
 
-void Toll_Station::Two_wheelers() {
-    string a;
-    cout <<"Enter the name of two wheelers you have: ";
-    cin >> a;
-    if(a=="Cycle"){
-        toll_twowheelers[Cycle] = 1;
-        Cycle_count++;
-        total_vehicle++;
+class FourWheeler : public Vehicle {
+public:
+    int getToll() const override {
+        return 2;
     }
-    else if(a=="Electric_scooty"){
-        toll_twowheelers[Electric_scooty] = 1;
-        Electric_scooty_count++;
-        total_vehicle++;
+    std::string getType() const override {
+        return "Four Wheeler";
     }
-    else if(a=="Motor cycle" || a=="Electric cycle"){
-        toll_twowheelers[motor_or_electric_cycle] = 1;
-        motor_or_electric_cycle_count++;
-        total_vehicle++;
-    }
-    else{
-        cout<<"Invalid Car! Please enter again."
-    }
-}
+};
 
-void Toll_Station::Four_wheelers() {
-    string b;
-    cout<< "Enter the name of the four wheelers you have: ";
-    cin>> b;
-    if(b=="Car") {
-        toll_fourwheelers[Cars] = 2;
-        Cars_count++;
-        total_vehicle++;   
+class Van : public Vehicle {
+public:
+    int getToll() const override {
+        return 3;
     }
-    else if(b=="SUV"){
-        toll_fourwheelers[Suv] = 2;
-        Suv_count++;
-        total_vehicle++;
+    std::string getType() const override {
+        return "Van";
     }
-    else if(b=="Crossovers"){
-        toll_fourwheelers[Crossovers] = 2;
-        Crossovers_count++;
-        total_vehicle++;
-    }
-    else if(b=="Vans"){
-        toll_fourwheelers[vans] = 3;
-        vans_count++;
-        total_vehicle++;
-    }
-    else if(b=="Pickups"){
-        toll_fourwheelers[pickups] = 3;
-        pickups_count++;
-        total_vehicle++;
-    }
-    else if(b=="Minibus"){
-        toll_fourwheelers[minibus] = 3;
-        minibus_count++;
-        total_vehicle++;
-    }
-    else if(b=="Minivans"){
-        toll_fourwheelers[minivans] = 3;
-        minivan_count++;
-        total_vehicle++;
-    }
-    else if(b=="Campervan"){
-        toll_wheelers[campervan] = 3;
-        campervan_count++;
-        total_vehicle++;
-    }
-    else if(b=="Tractors"){
-        toll_fourwheelers[tractors] = 4;
-        tractors_count++;
-        total_vehicle++;
-    }
-    else if(b=="Agricultural Machines"){
-        toll_fourwheelers[agricultural_machines] = 4;
-        agricultural_machines_count++
-        total_vehicles++
-    }
-    else{
-        cout<<"Invalid Car! Please enter again.";
-    }
-    
-}
-void Toll_Station::Six_wheelers() {
-    string c;
-    cout<< "Enter the name of six wheelers vehicle you have: ";
-    cin>>c;
-    if(c=="Bus"){
-        toll_sixwheelers[busses] = 5;
-        busses_count++;
-        total_vehicle++;
-    }
-    else if(c=="Coach"){
-        toll_sixwheelers[coaches] = 5;
-        coaches_count++;
-        total_vehicle++;
-    }
-    else if(c=="Van"){
-        toll_sixwheelers[Vans] = 5;
-        Vans_count++;
-        total_vehicle++;
-    }
-    else if(c=="Truck"){
-        toll_sixwheelers[trucks] = 6;
-        trucks_count++;
-        total_vehicle++;
-    }
-    else if(c=="Lorry"){
-        toll_sixwheelers[lorries] = 6;
-        lorries_count++;
-        total_vehicle++;
-    }
-    else{
-        cout<<"Invalid car! Please enter again.";
-    }
-}
+};
 
-void Toll_Station::ten_Or_more_wheelers() {
-    string d;
-    cout<<"Enter the name of your vehicle: ";
-    cin>>d;
-    if(d==Truck){
-        toll_ten_ormore_wheelers[Trucks] = 10;
-        Trucks_count++;
-        total_vehicle++;
+class Bus : public Vehicle {
+public:
+    int getToll() const override {
+        return 5;
     }
-    else if(d=="Agricultural Machine"){
-        toll_ten_ormore_wheelers[Agricultural_machines] = 10;
-        Agricultural_machines_count++;
-        total_vehicle++;
+    std::string getType() const override {
+        return "Bus";
     }
-    else{
-        cout<<"Invalid car! Please enter again.";
-    }
-}
-//function to print the total toll amount collected from the different types of vehicles
-void Toll_Station::Total_toll(){
+};
 
-    int sum = 0;
-    for(int i=0; i<Two_wheelers_count; i++){
-        sum = sum + toll_twowheelers[i];
+class Truck : public Vehicle {
+public:
+    int getToll() const override {
+        return 6;
     }
-    for(int i=0; i<Four_wheelers_count; i++){
-        sum = sum + toll_fourwheelers[i];
+    std::string getType() const override {
+        return "Truck";
     }
-    for(int i=0; i<Six_wheelers_count; i++){
-        sum = sum + toll_Sixwheelers[i];
-    }
-    for(int i=0; i<Ten_or_more_wheelers_count; i++){
-        sum = sum + int toll_ten_or_more_wheelers[i];
-    }
-    cout<< "Total toll collected from different vehicle types is: " << sum<<endl;
-}
-//function to print the total number of vehicles which has crossed the toll
+};
 
-void Toll_Station::Total_vehicle()[
+class TenOrMoreWheeler : public Vehicle {
+public:
+    int getToll() const override {
+        return 10;
+    }
+    std::string getType() const override {
+        return "Ten or More Wheeler";
+    }
+};
 
-    cout<<"Total number of vehicle which has crossed this toll is: "<<total_vehicle<<endl;
-]
+//Toll class to manage toll collection and generate reports
+class Toll {
+private:
+    std::map<std::string, int> vehicleCounts;
+    std::map<std::string, int> vehicleTollCollected;
+    int totalTollCollected;
+    int totalVehiclesCrossed;
 
-//main function
+public:
+    Toll() : totalTollCollected(0), totalVehiclesCrossed(0) {}
+
+    //Collecting toll for a specific vehicle and updating counts
+    void collectToll(const Vehicle& vehicle) {
+        int toll = vehicle.getToll();
+        totalTollCollected += toll;
+        totalVehiclesCrossed++;
+        vehicleCounts[vehicle.getType()]++;
+        vehicleTollCollected[vehicle.getType()] += toll;
+    }
+
+    //Generating and printing the summary report
+    void generateSummary() const {
+        std::cout << "----- Toll Summary Report -----\n";
+        std::cout << "Total toll collected: " << totalTollCollected << " euro\n";
+        std::cout << "Total vehicles crossed: " << totalVehiclesCrossed << "\n\n";
+
+        std::cout << "Toll Collected from Each Vehicle Type:\n";
+        for (const auto& entry : vehicleTollCollected) {
+            std::cout << entry.first << ": " << entry.second << " euro\n";
+        }
+        std::cout << "\n";
+
+        std::cout << "Number of Each Vehicle Type Crossed:\n";
+        for (const auto& entry : vehicleCounts) {
+            std::cout << entry.first << ": " << entry.second << "\n";
+        }
+    }
+};
 
 int main() {
+    Toll tl;
+    std::string input;
 
-    Toll_Station express;
-    express.count();
+    std::cout << "Welcome to the Toll Collection System\n";
 
-    cout<<"Welcome to the Toll Station."<<endl;
-    cout<<"Enter 1 to give the toll"<<endl;
-    cout<<"Enter 2 to see the toll station reports"<<endl;
-    cout<<"Enter 3 to exit the toll."<<endl;
-    int j;
-    cout<<"Select: ";
-    cin>> j;
-    switch(j){
-        case '1':
-                cout<<"Enter\n a for two_wheelers\n b for four_wheelers\n c for six_wheelers\n d for ten_or_more_wheelers";
-                char g;
-                cout<<"Select: ";
-                cin>>g;
-                switch(g){
-                    case 'a':
-                             express.Two_wheelers();
-                             break;
-                    case 'b':
-                             express.Four_wheelers();
-                             break;
-                    case 'c':
-                             express.Six_wheelers();
-                             break;
-                    case 'd':
-                             express.ten_Or_more_wheelers();
-                             break;
-                    default:
-                            cout<<"Invalid character!";
-                            break;
-                }
-                break;
+    //Main loop for toll collection
+    while (true) {
+        std::cout << "Enter vehicle type (Two Wheeler, Four Wheeler, Van, Bus, Truck, Ten or More Wheeler) or 'Exit' to end: ";
+        std::getline(std::cin, input);
 
-        case '2':
-                cout<<"Enter\n w for total number of vehicles which have crossed the toll\n u for the total toll collected";
-                char p;
-                cout<<"Select: ";
-                cin>>p;
-                switch(p){
-                    case 'w':
-                             express.Total_vehicle();
-                             break;
-                    case 'u':
-                             express.Total_toll();
-                             break;
-                    defualt: 
-                            cout<<"Invalid Character!";
-                            break;
-                }
-                break;
-        case '3':
-                 cout<<"Program exited. Have a safe journey!";
-                 return 0;
-        default:
-                cout<<"Enter a valid number!";
-                break;
-                 
+        if (input == "Exit" || input == "exit") {
+            //If the user chooses to exit, generate and display summary report
+            tl.generateSummary();
+            break;
+        }
+
+        //Creating appropriate vehicle object based on user input
+        Vehicle* vehicle = nullptr;
+        if (input == "Two Wheeler") {
+            vehicle = new TwoWheeler();
+        } else if (input == "Four Wheeler") {
+            vehicle = new FourWheeler();
+        } else if (input == "Van") {
+            vehicle = new Van();
+        } else if (input == "Bus") {
+            vehicle = new Bus();
+        } else if (input == "Truck") {
+            vehicle = new Truck();
+        } else if (input == "Ten or More Wheeler") {
+            vehicle = new TenOrMoreWheeler();
+        } else {
+            //Invalid input, prompt user again
+            std::cout << "Invalid vehicle type. Please try again.\n";
+            continue;
+        }
+
+        //Collecting toll for the selected vehicle and update booth information
+        tl.collectToll(*vehicle);
+        delete vehicle;
     }
 
     return 0;
-
 }
-
-
-
-
-
-
-
-
-
