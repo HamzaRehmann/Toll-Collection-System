@@ -1,6 +1,6 @@
 # Toll Collection System
 
-Develop a software in C/C++ that can charge toll for every passing vehicle and generate a summary for the revenue collected, and vehicle crossed etc. 
+Developed a software in C/C++ that can charge toll for every passing vehicle and generate a summary for the revenue collected, and vehicle crossed etc. 
 
 Text based interface takes keyboard input for a particular type of vehicle and automatically record the revenue collected and type of vehicle that crossed the check point. The user/operator may end the program using “Exit” option.
 
