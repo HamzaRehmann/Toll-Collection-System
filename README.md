@@ -28,13 +28,17 @@ clang++ -std=c++11 -o toll main.cpp
 
 
 Total toll collected: 3 euro
+
 Total vehicles crossed: 2
 
 Toll Collected from Each Vehicle Type:
+
 Two Wheeler: 1 euro
+
 Four Wheeler: 2 euro
 
 Number of Each Vehicle Type Crossed:
 Two Wheeler: 1
+
 Four Wheeler: 1
 
