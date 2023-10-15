@@ -23,7 +23,10 @@ clang++ -std=c++11 -o toll main.cpp
 ./toll
 
 ### sample output:
+
 ----- Toll Summary Report -----
+
+
 Total toll collected: 3 euro
 Total vehicles crossed: 2
 
