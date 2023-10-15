@@ -1,4 +1,4 @@
-### Toll Collection System
+# Toll Collection System
 
 Develop a software in C/C++ that can charge toll for every passing vehicle and generate a summary for the revenue collected, and vehicle crossed etc. 
 
@@ -15,14 +15,14 @@ Number of each type of vehicle crossed (eg. Four wheelers, two wheelers etc.)
 
 Polymorphism is used for designing and attempting the code.
 
-# To compile this program:
+### To compile this program:
 
 clang++ -std=c++11 -o toll main.cpp
 
-# To run the program:
+### To run the program:
 ./toll
 
-# sample output:
+### sample output:
 ----- Toll Summary Report -----
 Total toll collected: 3 euro
 Total vehicles crossed: 2
