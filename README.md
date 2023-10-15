@@ -38,6 +38,7 @@ Two Wheeler: 1 euro
 Four Wheeler: 2 euro
 
 Number of Each Vehicle Type Crossed:
+
 Two Wheeler: 1
 
 Four Wheeler: 1
